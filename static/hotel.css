@@ -1,0 +1,45 @@
+#hotelname{
+    color:lavenderblush;
+    text-align: center;
+    background-color:darkcyan;
+    background-origin:content-box;
+
+}
+#veg{
+    font-size:18px;
+    margin-left: 15%;
+    padding-top:3%;
+    width:70%;
+    height:20%;
+    border-radius:40px;
+    text-align:center;
+    background-color:burlywood;
+}
+#Non-Veg{
+    font-size:18px;
+    margin-left: 15%;
+    padding-top:3%;
+    width:70%;
+    height:100%;
+    border-radius:40px;
+    text-align:center;
+    background-color:burlywood;
+}
+.button {
+    display: inline-block;
+}
+#tot{
+    background-image:url("b3.jpg");
+    background-size: cover;
+    background-position:center;
+    }
+#veg_new{
+    background-image:url("b2.jpg");
+    background-size: cover;
+    background-position:center; 
+}
+#Nonveg_new{
+    background-image:url("b2.jpg");
+    background-size: cover;
+    background-position:center; 
+}

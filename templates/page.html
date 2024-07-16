@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curry Point - Culinary Delights</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('static/logo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: rgba(52, 58, 64, 0.8);
+        }
+        .jumbotron {
+            background-color: rgba(52, 58, 64, 0.8);
+            padding: 2rem 1rem; /* Adjusted padding for the jumbotron */
+        }
+        .menu-section {
+            margin-top: 30px;
+            text-align: justify;
+        }
+        h2 {
+            color: cyan;
+        }
+        #logo {
+            max-width: 100px;
+        }
+        .menu-item {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .customize-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: aqua;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            color: #000;
+        }
+        .customize-btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .card-img-top {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        p {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="static/logo.jpg" alt="Curry Point Logo" id="logo">
+            Curry Point
+        </a>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron text-center">
+            <br><br>
+            <h2 class="display-4">Our Menu</h2>
+        </div>
+
+        <div class="row menu-section">
+            <div class="col-md-6 menu-item">
+                <div class="card">
+                    <img class="card-img-top" src="static/veg.jpg" alt="Vegetarian">
+                    <div class="card-body">
+                        <h5 class="card-title">Vegetarian</h5>
+                        <p class="card-text">Indulge in flavors of seasoned rice, delectable veg curry, and crispy veg fry.</p>
+                        <a href="vegOptions.html" class="customize-btn">Customize</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 menu-item">
+                <div class="card">
+                    <img class="card-img-top" src="static/nveg.jpg" alt="Non-Vegetarian">
+                    <div class="card-body">
+                        <h5 class="card-title">Non-Vegetarian</h5>
+                        <p class="card-text">Savor the richness of biryani, succulent non-veg curry, and tantalizing fry.</p>
+                        <a href="NonvegOptions.html" class="customize-btn">Customize</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/bootstrap.bundle.min.js"></script>
+</body>
+</html>

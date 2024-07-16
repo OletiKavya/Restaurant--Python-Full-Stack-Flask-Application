@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Non-Vegetarian Plate Customize</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('static/b3.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000000; /* Set font color to black */
+            padding: 20px;
+        }
+        #Nonveg_new {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        h1, h3 {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function myFunction(event) {
+            event.preventDefault();
+            alert("Order Successful!");
+        }
+    </script>
+</head>
+<body>
+    <div class="container" id="Nonveg_new">
+        <div id="Non-Veg">
+            <h1 class="mt-4">Non-Vegetarian Customize Options</h1>
+            <img src="static/Non-vegt.jpg" class="img-fluid" alt="Non-Vegetarian Options Image">
+            <form onsubmit="myFunction(event)">
+                <div class="form-group">
+                    <label for="Fry">Choose your Fry:</label>
+                    <select class="form-control" name="Fry" id="Fry">
+                        <option value="chilli">Chilli Chicken</option>
+                        <option value="green">Green Chicken</option>
+                        <option value="tandoori">Chicken Tandoori</option>
+                        <option value="Natukodi">Natukodi Chicken Fry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Curry">Choose your Curry:</label>
+                    <select class="form-control" name="Curry" id="Curry">
+                        <option value="ticka">Chicken Tikka Masala</option>
+                        <option value="regular">Regular</option>
+                        <option value="Natukodi">Natukodi Curry</option>
+                    </select>
+                </div>
+                <h3>Total Price: $35</h3>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-danger" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="static/bootstrap.bundle.min.js"></script>
+</body>
+</html>

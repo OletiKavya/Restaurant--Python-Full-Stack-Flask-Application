@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container" id="choiceContainer">
+        <h2>Welcome</h2>
+        <button id="newUserButton">New User</button>
+        <button id="existingUserButton">Existing User</button>
+    </div>
+    
+    <div class="container" id="registerContainer" style="display:none;">
+        <h2>Register</h2>
+        <form id="RegisterForm">
+            <label for="username">Username:</label>
+            <input type="text" id="registerUsername" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="registerPassword" name="password">
+            <label for="role">Role:</label>
+            <input type="text" id="registerRole" name="role">
+            <button type="submit">Register</button>
+        </form>
+        <button id="backButtonFromRegister">Back</button>
+    </div>
+    
+    <div class="container" id="loginContainer" style="display:none;">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="loginUsername" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="loginPassword" name="password">
+            <button type="submit">Login</button>
+        </form>
+        <button id="backButtonFromLogin">Back</button>
+    </div>
+
+    <script>
+        document.getElementById('newUserButton').addEventListener('click', function() {
+            document.getElementById('choiceContainer').style.display = 'none';
+            document.getElementById('registerContainer').style.display = 'block';
+        });
+
+        document.getElementById('existingUserButton').addEventListener('click', function() {
+            document.getElementById('choiceContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+        });
+
+        document.getElementById('backButtonFromRegister').addEventListener('click', function() {
+            document.getElementById('registerContainer').style.display = 'none';
+            document.getElementById('choiceContainer').style.display = 'block';
+        });
+
+        document.getElementById('backButtonFromLogin').addEventListener('click', function() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('choiceContainer').style.display = 'block';
+        });
+
+        document.getElementById('RegisterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const role = document.getElementById('registerRole').value;
+
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, password: password, role: role })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Registration successful!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during registration.');
+            });
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, password: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.access_token) {
+                    localStorage.setItem('access_token', data.access_token);
+                    alert('Login successful!');
+                    window.location.href = "page.html";  // Redirect to page.html
+                } else {
+                    alert('Login failed: ' + data.msg);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during login.');
+            });
+        });
+    </script>
+</body>
+</html>
